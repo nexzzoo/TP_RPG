@@ -10,19 +10,33 @@ Fonction getWinnerTeam
 Elle permet de récupérer l'equipe gagnante.
 
 Objectif
-Le but est de instancier deux équipes qui vont se battre. Dans ces deux equipes il n'y aura qu'une seule instance de combattant.
+Le but est de instancier deux équipes qui vont se battre.
+Dans ces deux equipes il n'y aura qu'une seule instance de combattant.
 
 Donc deux equipes composées d'un(e) seul(e) combattant(e).
 
 Dans la fonction play de Game nous allons mettre la logique du combat.
 
-En gros vous allez boucler tant qu'une partie n'as pas perdu pour attaquer les combattants entre eux à l'aide de la méthode attack
+En gros vous allez boucler tant qu'une partie n'as pas perdu pour attaquer les combattants
+entre eux à l'aide de la méthode attack
 
 Lorsqu'on sort de la boucle on affiche le vainqueur.
  */
 
 public class Main {
     public static void main(String[] args) {
+        // Créer les combattants (power retiré)
+        Battler playerBattler = new Battler("Joueur1", 100);
+        Battler enemyBattler = new Battler("Ennemi1", 100);
 
+        // Créer les équipes
+        Team playerTeam = new Team(playerBattler);
+        Team enemyTeam = new Team(enemyBattler);
+
+        // Lancer le jeu
+        Game game = new Game(playerTeam, enemyTeam);
+        game.play();
     }
 }
+
+
